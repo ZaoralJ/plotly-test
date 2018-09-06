@@ -4,6 +4,8 @@ import { DateTime } from 'date-time-js';
 
 declare var Plotly: any;
 
+
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
