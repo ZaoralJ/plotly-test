@@ -84,11 +84,15 @@ export class ChartComponent implements OnInit {
       }
     };
 
-    //const data = [trace1, trace2, trace3];
-    const data = [trace1];
+    const data = [trace1, trace2, trace3];
+    //const data = [trace1];
     setTimeout(() => {
 
-      Plotly.newPlot(this.chartId, data, layout);
+      Plotly.newPlot(this.chartId, data, layout, {
+        // double click interaction 
+        // false, 'reset', 'autosize' or 'reset+autosize'
+        doubleClick: false
+      });
 
       this.chartDiv = document.getElementById(this.chartId);
 
@@ -113,7 +117,7 @@ export class ChartComponent implements OnInit {
     setTimeout(() => {
       this.unSubscribeRelayout();
       setTimeout(() => {
-        if (this.chartId != data.origin) {
+        // if (this.chartId != data.origin) {
           if (data.y1 == null && data.y2 == null) {
             const update = {
               'yaxis.autorange': true,
@@ -129,7 +133,7 @@ export class ChartComponent implements OnInit {
 
             Plotly.relayout(this.chartId, update);
           }
-        }
+        // }
         setTimeout(() => {
           this.subscribeRelayout();
         }, 0);
@@ -137,4 +141,5 @@ export class ChartComponent implements OnInit {
     }, 0);
 
   }
+
 }
