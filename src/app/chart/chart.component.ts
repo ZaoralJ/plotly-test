@@ -87,6 +87,7 @@ export class ChartComponent implements OnInit {
     //const data = [trace1, trace2, trace3];
     const data = [trace1];
     setTimeout(() => {
+
       Plotly.newPlot(this.chartId, data, layout);
 
       this.chartDiv = document.getElementById(this.chartId);
@@ -115,8 +116,6 @@ export class ChartComponent implements OnInit {
         if (this.chartId != data.origin) {
           if (data.y1 == null && data.y2 == null) {
             const update = {
-              // 'yaxis.range[0]': 0,
-              // 'yaxis.range[1]': 25,
               'yaxis.autorange': true,
               'xaxis.autorange': true,
             };
