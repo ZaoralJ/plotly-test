@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
+import { ZoomService } from './zoom.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ChartComponent } from './chart/chart.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    ZoomService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
